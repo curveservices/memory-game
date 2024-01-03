@@ -2,10 +2,9 @@
 
 # Project: Memory Game
 
-## Live Demo 👉 
+## Live Demo 👉
 
 ## PC View 👇
-
 
 ## Overview
 
@@ -21,7 +20,7 @@
 1. Structure your application with components needed
 2. Get the images from an API
 3. The application should include a scoreboard, which counts the current score, and a “Best Score”, which shows the highest score you’ve achieved thus far.
-4. There should be a function that displays the cards in a random order anytime a user clicks one. 
+4. There should be a function that displays the cards in a random order anytime a user clicks one.
 5. There should be cards that display images and possibly informational text. These cards and texts need to be fetched from an external API.
 
 ## Extra
@@ -38,10 +37,7 @@
     <img width="100" alt="GIT" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" /></a>
 <a href="https://react.dev/">
     <img width="100" alt="REACT" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /></a>
-          
 
-
-***<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 00-00-2023***
-
+**_<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 00-00-2023_**
 
 [Back to top 👆](#project)
