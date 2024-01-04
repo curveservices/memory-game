@@ -2,7 +2,7 @@ import Gameboard from "./gameboard";
 
 const App = () => {
   return (
-    <div className="app" >
+    <div className="app">
       <h1>Pokemon Memory Card Game</h1>
       <Gameboard />
     </div>
