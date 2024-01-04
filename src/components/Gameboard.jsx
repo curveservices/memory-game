@@ -11,6 +11,7 @@ const Gameboard = () => {
 
   useEffect(() => {
     fetchCards();
+    setScore(0)
   }, []);
 
   const fetchRandomCardIds = async (count) => {
@@ -66,7 +67,7 @@ const Gameboard = () => {
       const newClickedIds = [...clickedIds, clickedPokemon.id];
       console.log("New Clicked IDs:", newClickedIds);
       setClickedIds(newClickedIds);
-      // shuffleCards();
+      shuffleCards();
 
       // Check for a match
       if (newClickedIds.length === cards.length) {
@@ -76,7 +77,7 @@ const Gameboard = () => {
       } else {
         // Update current score and best score
         const newScore = newClickedIds.length;
-        console.log("New Score:", newScore);
+        console.log("New Score:", newScore + 1);
         setScore(newScore);
 
         if (newScore > bestScore) {
@@ -96,6 +97,7 @@ const Gameboard = () => {
 
   const handleGameWin = async () => {
     setClickedIds([]);
+    setScore(0)
     alert("Congrats you win");
     await fetchRandomCardIds();
     await fetchCards();
