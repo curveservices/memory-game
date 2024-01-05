@@ -1,0 +1,12 @@
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+.number {
+    color: red
+}

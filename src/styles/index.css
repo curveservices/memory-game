@@ -11,9 +11,10 @@
 body {
   background: url(../assets/7917587.jpg) no-repeat center center fixed;
   background-size: cover;
+  opacity: 0.95;
   font-family: 'Press Start 2P', system-ui;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgb(255, 255, 255);
   text-align: center;
   background-color: #242424;
 }
@@ -29,6 +30,8 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: yellow;
+  text-shadow: 10px 5px 4px blue;
 }
 
 button {

@@ -2,9 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#625b4c 30%, #625b4c7b 70%, #625b4c00) ;
+  background: linear-gradient(#625b4c 60%, #625b4ccb 80%, #625b4c23) ;
   gap: 5em;
   padding: 1em;
+}
+
+.strong-hover-shake:hover {
+  animation: tilt-shaking 0.15s infinite;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
 }
 
 .logo {
@@ -20,10 +32,10 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #eaed06aa);
+  filter: drop-shadow(0 0 2em #0634edaa);
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #efb508aa);
+  filter: drop-shadow(0 0 2em #2450edaa);
 }
 
 @keyframes logo-spin {
