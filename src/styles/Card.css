@@ -1,18 +1,107 @@
-.card,
+
 .cards-container {
-    width: 180px;
-    height: auto;
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
 }
 
 .card {
+    align-items: center;
+    background-color: #a28443ad;
     border-radius: 5px;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 0;
-    gap: 1em;
+    margin: 1em;
+    padding: 1em;
+    gap: 2em;
+    width: 15em;
 }
 
 img {
-    height: 250px;
+    width: 200px;
+    height: auto;
+    
 }
+  
+  .card:focus {
+    outline: 0;
+  }
+  
+  .card:focus-visible {
+    outline: 1px solid black;
+  }
+  
+  .card:active {
+    scale: 0.95;
+    outline: 0;
+  }
+  
+  .card-container {
+    perspective: 1000px;
+  }
+  
+  .card-container.back .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-inner {
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.85s;
+    animation: flip-card 0.85s;
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    user-select: none;
+  }
+  
+  .card[data-shiny="true"] .card-name .name {
+    background: linear-gradient(120deg, gold 0%, lightyellow 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .shiny-symbol {
+    position: absolute;
+    top: 6px;
+    left: 2px;
+    width: 32px;
+    height: 32px;
+    background: url("../assets/sparkle.webp");
+  }
+  
+  .card-name {
+    letter-spacing: -0.02em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 6px;
+    font-weight: bold;
+    max-width: 100%;
+    text-transform: capitalize;
+    color: white;
+    font-size: 15px;
+  }
+  @keyframes flip-card {
+    from {
+      transform: rotateY(180deg);
+      pointer-events: none;
+    }
+    to {
+      transform: rotateY(0deg);
+    }
+  }

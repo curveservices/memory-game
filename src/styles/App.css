@@ -1,15 +1,42 @@
-#root {
- 
-  margin: 0;
-  text-align: center;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#625b4c 30%, #625b4c7b 70%, #625b4c00) ;
+  gap: 5em;
+  padding: 1em;
 }
 
+.logo {
+  width: 75px;
+  height: 75px;
+  will-change: filter;
+  transition: filter 300ms;
+  -webkit-animation: logo-spin 3s linear infinite;
+  -moz-animation: logo-spin 3s linear infinite;
+  -ms-animation: logo-spin 3s linear infinite;
+  -o-animation: logo-spin 3s linear infinite;
+  animation: logo-spin 3s linear infinite;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #eaed06aa);
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #efb508aa);
+}
 
 @keyframes logo-spin {
   from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -18,12 +45,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
