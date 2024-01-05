@@ -33,7 +33,7 @@ const Gameboard = () => {
   };
 
   const fetchCards = async () => {
-    const randomIds = await fetchRandomCardIds(6);
+    const randomIds = await fetchRandomCardIds(5);
 
     try {
       const fetchedCards = await Promise.all(
@@ -129,14 +129,14 @@ const Gameboard = () => {
   };
 
   return (
-    <div className="game-board">
+    <main className="game-board">
       <Scoreboard score={score} bestScore={bestScore} />
       <div className="cards-container">
         {cards.map((card) => (
           <Card key={card.id} {...card} handleCardClick={handleCardClick} />
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 
