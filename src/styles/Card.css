@@ -1,0 +1,18 @@
+.card,
+.cards-container {
+    width: 180px;
+    height: auto;
+    display: flex;
+}
+
+.card {
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 0;
+    gap: 1em;
+}
+
+img {
+    height: 250px;
+}

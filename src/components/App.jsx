@@ -1,5 +1,5 @@
 import Gameboard from "./gameboard";
-
+import '../styles/App.css'
 const App = () => {
   return (
     <div className="app">
