@@ -1,36 +1,56 @@
-
+/* Card.css */
 .cards-container {
     display: flex;
     justify-content: space-around;
+    gap: 1em;
     flex-wrap: wrap;
-
+    perspective: 1000px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    justify-content: space-between;
+    width: 250px;
+    height: 350px;
     background-color: #a28443ad;
-    border-radius: 5px;
-    margin: 1em;
-    padding: 1em; 
+    border-radius: 10px;
+
     transform-style: preserve-3d;
-    transition: transform 0.85s;
-    animation: flip-card 0.85s;
+    transition: transform 0.1s;
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+    width: 250px;
+    height: 350px;
+    
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+   
+}
+
+.flip-card-front,
+.flip-card-back {
+    width: 250px;
+    height: 350px;
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.pokeName {
+   margin-top: 2em;
 }
 
 img {
-    width: 200px;
+    width: 250px;
     height: auto;
-    
+    object-fit: cover;
 }
-  
-  @keyframes flip-card {
-    from {
-      transform: rotateY(180deg);
-      pointer-events: none;
-    }
-    to {
-      transform: rotateY(0deg);
-    }
-  }
