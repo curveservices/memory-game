@@ -11,7 +11,7 @@ const Gameboard = () => {
 
   useEffect(() => {
     fetchCards();
-    setScore(0)
+    setBestScore(0)
   }, []);
 
   const fetchRandomCardIds = async (count) => {
@@ -57,7 +57,7 @@ const Gameboard = () => {
     }
   };
 
-  const handleCardClick = (clickedPokemon) => {
+  const handleCardClick = async (clickedPokemon) => {
     if (clickedIds.includes(clickedPokemon.id)) {
       // User clicked on the same card twice - Game Over
       console.log("Handle Game Over");
@@ -86,6 +86,22 @@ const Gameboard = () => {
         }
       }
     }
+
+    setCards((prevCards) =>
+    prevCards.map((card) => ({
+      ...card,
+      flipped: true,
+    }))
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    setCards((prevCards) => 
+    prevCards.map((card) => ({
+      ...card,
+      flipped:false,
+    }))
+    )
   };
 
   const handleGameOver = () => {
@@ -132,8 +148,11 @@ const Gameboard = () => {
     <main className="game-board">
       <Scoreboard score={score} bestScore={bestScore} />
       <div className="cards-container">
-        {cards.map((card) => (
-          <Card key={card.id} {...card} handleCardClick={handleCardClick} />
+        {cards.map((card, index) => (
+          <Card 
+          key={card.id} 
+          {...card} 
+          handleCardClick={(clickedPokemon) => handleCardClick(clickedPokemon, index)}/>
         ))}
       </div>
     </main>

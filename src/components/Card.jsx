@@ -1,16 +1,29 @@
 import '../styles/Card.css'
 import Tilt from 'react-parallax-tilt'
+import cardBack from '../assets/card-back.png'
 
-const Card = ({ id, name, image, handleCardClick }) => {
-  
+const Card = ({ id, name, image, flipped, handleCardClick }) => {
+
+
   return (
-    <Tilt>
-      <div className="card" 
-      onClick={() => 
-      handleCardClick({ id, name, image })}
+    <Tilt 
+    tiltReverse
+    glareEnable
+    glareReverse
+    glarePosition='all'
+    >
+      <div className={`card ${flipped ? 'flipped' : ''}` }
+      onClick={() =>  handleCardClick({ id, name, image })}
       >
-        <img src={image} alt={name} />
-        <p className='pokeName'>{name}</p>
+        <div className='flip-card-inner'>
+          <div className='flip-card-front'>
+            <img src={image} alt={name} />
+            <p className='pokeName'>{name}</p>
+          </div>
+          <div className='flip-card-back'>
+            <img src={cardBack} alt={name} />
+        </div>
+        </div>
       </div>
     </Tilt>
   );
