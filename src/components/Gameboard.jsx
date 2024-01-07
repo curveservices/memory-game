@@ -2,16 +2,28 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./card";
 import Scoreboard from "./Scoreboard";
+import Modal from "./Modal";
 
 const Gameboard = () => {
   const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clickedIds, setClickedIds] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalContent, setModalContent] = useState({
+    message: '',
+    buttonText: '',
+    onRestart: () => {},
+  });
 
   useEffect(() => {
     fetchCards();
-    setBestScore(0)
+    setModalContent({
+      message: 'Click Start Game to play',
+      buttonText: 'Start Game',
+      onRestart: handleStartGame,
+    });
+    setModalOpen(true);
   }, []);
 
   const fetchRandomCardIds = async (count) => {
@@ -60,64 +72,80 @@ const Gameboard = () => {
   const handleCardClick = async (clickedPokemon) => {
     if (clickedIds.includes(clickedPokemon.id)) {
       // User clicked on the same card twice - Game Over
-      console.log("Handle Game Over");
       handleGameOver();
     } else {
       // User clicked on a new card
       const newClickedIds = [...clickedIds, clickedPokemon.id];
-      console.log("New Clicked IDs:", newClickedIds);
       setClickedIds(newClickedIds);
       shuffleCards();
 
       // Check for a match
       if (newClickedIds.length === cards.length) {
-        console.log("Handle Game Win");
         // All cards clicked - User wins!
         handleGameWin();
       } else {
         // Update current score and best score
         const newScore = newClickedIds.length;
-        console.log("New Score:", newScore + 1);
         setScore(newScore);
 
         if (newScore > bestScore) {
-          console.log("Set Best Score:", newScore);
           setBestScore(newScore);
         }
       }
     }
 
     setCards((prevCards) =>
-    prevCards.map((card) => ({
-      ...card,
-      flipped: true,
-    }))
+      prevCards.map((card) => ({
+        ...card,
+        flipped: true,
+      }))
     );
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
+    
     setCards((prevCards) => 
     prevCards.map((card) => ({
       ...card,
       flipped:false,
-    }))
-    )
+      }))
+    );
   };
+
+  const handleStartGame = () => {
+    setModalOpen(false);
+    
+  }
 
   const handleGameOver = () => {
     setClickedIds([]);
     setScore(0);
-    alert("Game Over! Try Again!");
+    setModalContent({
+      message: 'Game Over! Try Again!',
+      buttonText: 'Restart',
+      onRestart: restartGame,
+    });
+    setModalOpen(true)
     shuffleCards();
   };
 
   const handleGameWin = async () => {
     setClickedIds([]);
     setScore(0)
-    alert("Congrats you win");
+    setModalContent({
+      message: 'Congrats you win!',
+      buttonText: 'Play Again',
+      onRestart: restartGame,
+    });
     await fetchRandomCardIds();
     await fetchCards();
   };
+
+  const restartGame = () => {
+    setModalOpen(false);
+    fetchRandomCardIds();
+    fetchCards();
+  }
 
   const shuffleCards = () => {
     const shuffledCards = [...cards];
@@ -155,6 +183,13 @@ const Gameboard = () => {
           handleCardClick={(clickedPokemon) => handleCardClick(clickedPokemon, index)}/>
         ))}
       </div>
+      <Modal 
+      isOpen={modalOpen}
+      onClose={() => setModalOpen(false)}
+      onRestart={modalContent.onRestart}
+      message={modalContent.message}
+      buttonText={modalContent.buttonText}
+      />
     </main>
   );
 };

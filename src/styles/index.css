@@ -34,10 +34,14 @@ h1 {
   text-shadow: 10px 5px 4px blue;
 }
 
+h2 {
+  color: yellow;
+  text-shadow: 10px 5px 4px blue;
+}
+
 button {
   cursor: pointer;
   font-family: inherit;
-  color: inherit;
 }
 
 button:focus-visible {
