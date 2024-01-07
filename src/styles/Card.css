@@ -27,7 +27,6 @@
 .flip-card-inner {
     width: 250px;
     height: 350px;
-    
     transform-style: preserve-3d;
     transition: transform 0.1s;
    

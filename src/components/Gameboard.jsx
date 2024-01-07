@@ -69,7 +69,7 @@ const Gameboard = () => {
     }
   };
 
-  const handleCardClick = async (clickedPokemon) => {
+  const handleCardClick = (clickedPokemon) => {
     if (clickedIds.includes(clickedPokemon.id)) {
       // User clicked on the same card twice - Game Over
       handleGameOver();
@@ -79,20 +79,18 @@ const Gameboard = () => {
       setClickedIds(newClickedIds);
       shuffleCards();
 
-      // Check for a match
-      if (newClickedIds.length === cards.length) {
-        // All cards clicked - User wins!
-        handleGameWin();
-      } else {
-        // Update current score and best score
-        const newScore = newClickedIds.length;
-        setScore(newScore);
-
-        if (newScore > bestScore) {
+      const newScore = newClickedIds.length;
+      setScore(newScore);
+      
+      if (newScore > bestScore) {
           setBestScore(newScore);
         }
-      }
+      // Check for a win
+      if (newScore === cards.length) {
+        // All cards clicked - User wins!
+        handleGameWin();
     }
+  }
 
     setCards((prevCards) =>
       prevCards.map((card) => ({
@@ -101,15 +99,14 @@ const Gameboard = () => {
       }))
     );
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    
-    setCards((prevCards) => 
-    prevCards.map((card) => ({
-      ...card,
-      flipped:false,
-      }))
-    );
+    setTimeout(() => {
+      setCards((prevCards) => 
+        prevCards.map((card) => ({
+          ...card,
+          flipped: false,
+        }))
+      );
+    }, 500);
   };
 
   const handleStartGame = () => {
@@ -126,19 +123,19 @@ const Gameboard = () => {
       onRestart: restartGame,
     });
     setModalOpen(true)
-    shuffleCards();
   };
 
-  const handleGameWin = async () => {
+  const handleGameWin = () => {
+    console.log("handle game win")
     setClickedIds([]);
-    setScore(0)
     setModalContent({
       message: 'Congrats you win!',
       buttonText: 'Play Again',
       onRestart: restartGame,
     });
-    await fetchRandomCardIds();
-    await fetchCards();
+    fetchRandomCardIds();
+    fetchCards();
+    setModalOpen(true)
   };
 
   const restartGame = () => {

@@ -10,9 +10,8 @@ const Modal = ({ isOpen, onClose, onRestart, message, buttonText }) => {
             {buttonText === 'Start Game' ? (
                 <button onClick={onRestart}>Start Game</button>
             ) : (
-                <button onClick={onRestart}>Restart Game</button>
+                <button onClick={onRestart}>Go Again?</button>
             )}
-            <button onClick={onClose}>Close</button>
             </div>
         </div>
         );
