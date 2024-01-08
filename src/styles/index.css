@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-* ,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
   background: url(../assets/7917587.jpg) no-repeat center center fixed;
   background-size: cover;
   opacity: 0.95;
-  font-family: 'Press Start 2P', system-ui;
+  font-family: "Press Start 2P", system-ui;
   line-height: 1.5;
   color: #ffffff;
   text-align: center;
@@ -49,7 +49,6 @@ button:focus-visible {
 }
 
 @media only screen and (max-width: 600px) {
-
   h1 {
     font-size: 2em;
   }

@@ -9,18 +9,18 @@ const Gameboard = () => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clickedIds, setClickedIds] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({
-    message: '',
-    buttonText: '',
+    message: "",
+    buttonText: "",
     onRestart: () => {},
   });
 
   useEffect(() => {
     fetchCards();
     setModalContent({
-      message: 'Click Start Game to play',
-      buttonText: 'Start Game',
+      message: "Click Start Game to play",
+      buttonText: "Start Game",
       onRestart: handleStartGame,
     });
     setModalOpen(true);
@@ -81,65 +81,64 @@ const Gameboard = () => {
 
       const newScore = newClickedIds.length;
       setScore(newScore);
-      
+
       if (newScore > bestScore) {
-        localStorage.getItem(bestScore)
-          setBestScore(newScore);
-        }
+        localStorage.getItem(bestScore);
+        setBestScore(newScore);
+      }
       // Check for a win
       if (newScore === cards.length) {
         // All cards clicked - User wins!
         handleGameWin();
+      }
     }
-  }
 
     setCards((prevCards) =>
       prevCards.map((card) => ({
         ...card,
         flipped: true,
-      }))
+      })),
     );
 
     setTimeout(() => {
-      setCards((prevCards) => 
+      setCards((prevCards) =>
         prevCards.map((card) => ({
           ...card,
           flipped: false,
-        }))
+        })),
       );
     }, 500);
   };
 
   const handleStartGame = () => {
     setModalOpen(false);
-    
-  }
+  };
 
   const handleGameOver = () => {
     setClickedIds([]);
     setScore(0);
     setModalContent({
-      message: 'Game Over! Try Again!',
-      buttonText: 'Restart',
+      message: "Game Over! Try Again!",
+      buttonText: "Restart",
       onRestart: restartGame,
     });
-    setModalOpen(true)
+    setModalOpen(true);
   };
 
   const handleGameWin = () => {
     setClickedIds([]);
     setModalContent({
-      message: 'Congrats you win!',
-      buttonText: 'Play Again',
+      message: "Congrats you win!",
+      buttonText: "Play Again",
       onRestart: restartGame,
     });
     fetchCards();
-    setModalOpen(true)
+    setModalOpen(true);
   };
 
   const restartGame = () => {
     setModalOpen(false);
-  }
+  };
 
   const shuffleCards = () => {
     const shuffledCards = [...cards];
@@ -171,18 +170,21 @@ const Gameboard = () => {
       <Scoreboard score={score} bestScore={bestScore} />
       <div className="cards-container">
         {cards.map((card, index) => (
-          <Card 
-          key={card.id} 
-          {...card} 
-          handleCardClick={(clickedPokemon) => handleCardClick(clickedPokemon, index)}/>
+          <Card
+            key={card.id}
+            {...card}
+            handleCardClick={(clickedPokemon) =>
+              handleCardClick(clickedPokemon, index)
+            }
+          />
         ))}
       </div>
-      <Modal 
-      isOpen={modalOpen}
-      onClose={() => setModalOpen(false)}
-      onRestart={modalContent.onRestart}
-      message={modalContent.message}
-      buttonText={modalContent.buttonText}
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onRestart={modalContent.onRestart}
+        message={modalContent.message}
+        buttonText={modalContent.buttonText}
       />
     </main>
   );

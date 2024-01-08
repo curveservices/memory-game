@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#625b4c 60%, #625b4ccb 80%, #625b4c23) ;
+  background: linear-gradient(#625b4c 60%, #625b4ccb 80%, #625b4c23);
   gap: 5em;
   padding: 1em;
 }
@@ -12,11 +12,21 @@
 }
 
 @keyframes tilt-shaking {
-  0% { transform: translateX(0) }
-  25% { transform: translateX(5px) }
-  50% { transform: translateX(-5px) }
-  75% { transform: translateX(5px) }
-  100% { transform: translateX(0) }
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .logo {
@@ -61,9 +71,8 @@
 
 @media only screen and (max-width: 600px) {
   .header {
-   width: 100%;
-   gap: 2em;
-
+    width: 100%;
+    gap: 2em;
   }
 
   .logo {
@@ -72,7 +81,6 @@
   }
 
   .strong-hover-shake:hover {
-    animation: none
+    animation: none;
   }
-
 }

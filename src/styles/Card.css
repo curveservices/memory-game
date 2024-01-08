@@ -1,94 +1,90 @@
 /* Card.css */
 .cards-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 1em;
-    flex-wrap: wrap;
-    perspective: 1000px;
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+  flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 250px;
-    height: 350px;
-    background-color: #a28443ad;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  height: 350px;
+  background-color: #a28443ad;
+  border-radius: 10px;
 
-    transform-style: preserve-3d;
-    transition: transform 0.1s;
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
 }
 
 .flipped {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .flip-card-inner {
-    width: 250px;
-    height: 350px;
-    transform-style: preserve-3d;
-    transition: transform 0.1s;
-   
+  width: 250px;
+  height: 350px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s;
 }
 
 .flip-card-front,
 .flip-card-back {
-    width: 250px;
-    height: 350px;
-    backface-visibility: hidden;
-    position: absolute;
+  width: 250px;
+  height: 350px;
+  backface-visibility: hidden;
+  position: absolute;
 }
 
 .flip-card-back {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .pokeName {
-   margin-top: 2em;
+  margin-top: 2em;
 }
 
 img {
-    width: 250px;
-    height: auto;
-    object-fit: cover;
+  width: 250px;
+  height: auto;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 600px) {
+  .card {
+    width: 175px;
+    height: 100%;
+  }
 
-    .card {
-        width: 175px;
-        height: 100%;
-    
-    }
-   
-    .flip-card-inner {
-        width: 175px;
-        height: 250px;
-        transform-style: preserve-3d;
-        transition: transform 0.1s;
-       
-    }
-    
-    .flip-card-front,
-    .flip-card-back {
-        width: 175px;
-        height: 100%;
-        backface-visibility: hidden;
-        position: absolute;
-    }
-    
-    .flip-card-back {
-        transform: rotateY(180deg);
-    }
-    
-    .pokeName {
-       margin-top: 0.2em;
-    }
-    
-    img {
-        width: 175px;
-        height: 250px;
-        object-fit: contain;
-    }
+  .flip-card-inner {
+    width: 175px;
+    height: 250px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    width: 175px;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  .pokeName {
+    margin-top: 0.2em;
+  }
+
+  img {
+    width: 175px;
+    height: 250px;
+    object-fit: contain;
+  }
 }
