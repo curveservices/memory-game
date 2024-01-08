@@ -3,7 +3,7 @@
 ## Live Demo 👉 [PokéMem](https://pokemem-rozladev.netlify.app/)
 
 ## PC View 👇
-(https://github.com/curveservices/memory-game/assets/101556296/da0d1b04-471e-414a-9057-1269be6e8086)
+<img width="1371" alt="Screenshot 2024-01-08 at 09 31 08" src="https://github.com/curveservices/memory-game/assets/101556296/2ab53076-d0ba-4f2a-88a2-078706670116">
 
 ## Overview
 
