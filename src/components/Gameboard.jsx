@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "./card";
+import Card from "./Card";
 import Scoreboard from "./Scoreboard";
 import Modal from "./Modal";
 
