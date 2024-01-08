@@ -53,3 +53,42 @@ img {
     height: auto;
     object-fit: cover;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .card {
+        width: 175px;
+        height: 100%;
+    
+    }
+   
+    .flip-card-inner {
+        width: 175px;
+        height: 250px;
+        transform-style: preserve-3d;
+        transition: transform 0.1s;
+       
+    }
+    
+    .flip-card-front,
+    .flip-card-back {
+        width: 175px;
+        height: 100%;
+        backface-visibility: hidden;
+        position: absolute;
+    }
+    
+    .flip-card-back {
+        transform: rotateY(180deg);
+    }
+    
+    .pokeName {
+       margin-top: 0.2em;
+    }
+    
+    img {
+        width: 175px;
+        height: 250px;
+        object-fit: contain;
+    }
+}

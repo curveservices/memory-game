@@ -47,3 +47,10 @@ button {
 button:focus-visible {
   outline: 1px solid skyblue;
 }
+
+@media only screen and (max-width: 600px) {
+
+  h1 {
+    font-size: 2em;
+  }
+}

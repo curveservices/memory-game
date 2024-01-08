@@ -10,3 +10,11 @@
 .number {
     color: red
 }
+
+@media only screen and (max-width: 600px) {
+
+    .scoreboard {
+        gap: 2em;
+        font-size: 1em;
+    }
+}

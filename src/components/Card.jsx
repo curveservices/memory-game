@@ -17,8 +17,9 @@ const Card = ({ id, name, image, flipped, handleCardClick }) => {
       >
         <div className='flip-card-inner'>
           <div className='flip-card-front'>
+          <p className='pokeName'>{name}</p>
             <img src={image} alt={name} />
-            <p className='pokeName'>{name}</p>
+            
           </div>
           <div className='flip-card-back'>
             <img src={cardBack} alt={name} />
