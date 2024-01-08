@@ -1,6 +1,6 @@
 import '../styles/Card.css'
 import Tilt from 'react-parallax-tilt'
-import cardBack from '../assets/pokeball.png'
+import cardBack from '../assets/card-back.png'
 
 const Card = ({ id, name, image, flipped, handleCardClick }) => {
 
