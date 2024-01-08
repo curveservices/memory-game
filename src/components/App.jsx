@@ -1,4 +1,4 @@
-import Gameboard from "./gameboard";
+import Gameboard from "./Gameboard";
 import pokeball from '../assets/pokeball.png'
 import '../styles/App.css'
 

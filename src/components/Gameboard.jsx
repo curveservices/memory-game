@@ -126,22 +126,18 @@ const Gameboard = () => {
   };
 
   const handleGameWin = () => {
-    console.log("handle game win")
     setClickedIds([]);
     setModalContent({
       message: 'Congrats you win!',
       buttonText: 'Play Again',
       onRestart: restartGame,
     });
-    fetchRandomCardIds();
     fetchCards();
     setModalOpen(true)
   };
 
   const restartGame = () => {
     setModalOpen(false);
-    fetchRandomCardIds();
-    fetchCards();
   }
 
   const shuffleCards = () => {
