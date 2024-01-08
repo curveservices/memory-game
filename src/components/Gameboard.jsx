@@ -83,6 +83,7 @@ const Gameboard = () => {
       setScore(newScore);
       
       if (newScore > bestScore) {
+        localStorage.getItem(bestScore)
           setBestScore(newScore);
         }
       // Check for a win
