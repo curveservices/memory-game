@@ -1,10 +1,9 @@
-# 🚫 UNDER CONSTRUCTION 🚫
-
 # Project: Memory Game
 
-## Live Demo 👉
+## Live Demo 👉 [PokéMem](https://pokemem-rozladev.netlify.app/)
 
 ## PC View 👇
+(https://github.com/curveservices/memory-game/assets/101556296/da0d1b04-471e-414a-9057-1269be6e8086)
 
 ## Overview
 
@@ -38,6 +37,6 @@
 <a href="https://react.dev/">
     <img width="100" alt="REACT" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /></a>
 
-**_<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 00-00-2023_**
+**_<a href="https://twitter.com/Crypto_Rozla"> Rozla-Dev </a> 08-01-2024_**
 
 [Back to top 👆](#project)
